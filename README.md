@@ -1,100 +1,63 @@
-# Job Tracker API
+#Job Tracker API
 
-A simple and clean **REST API** for tracking job applications, built with **FastAPI**, **SQLModel**, and **SQLite**.  
-It provides full CRUD operations and auto-generated interactive documentation (Swagger UI).
+A RESTful API built with Python to manage and track job applications.
+This project allows users to create, update, delete, and monitor job applications efficiently.
 
----
+#FEATURES
+- Add a new job application
+- Update job status (applied, interview, accepted, rejected)
+- Delete a job application
+- Retrieve all job applications
+- REST API architecture
 
-## ✨ Features
+#TECHNOLOGIES USED
+- Python 3
+- Flask or FastAPI
+- REST API
+- JSON
+- Git & GitHub
 
-- Create a job application
-- List all applications
-- Get an application by ID
-- Update an application
-- Delete an application
-- Persistent storage using SQLite
-
----
-
-## 🧰 Tech Stack
-
-- Python
-- FastAPI
-- SQLModel
-- SQLite
-- Uvicorn
-
----
-
-## 📁 Project Structure
-
+#PROJECT STRUCTURE
 job-tracker-api/
-├── app/
-│ ├── init.py
-│ ├── main.py # FastAPI app entrypoint
-│ ├── db.py # Database engine/session setup
-│ └── models.py # SQLModel models
-├── .gitignore
-├── README.md
-└── job_tracker.db # created at runtime (ignored by git)
+- app.py
+- requirements.txt
+- README.txt
 
+#INSTALLATION
+1. Clone the repository:
+   git clone https://github.com/Ghaniomix/job-tracker-api.git
 
----
+2. Navigate to the project folder:
+   cd job-tracker-api
 
-## 🔌 API Endpoints
+3. Install dependencies:
+   pip install -r requirements.txt
 
-| Method | Endpoint                 | Description               |
-|------:|---------------------------|---------------------------|
-| POST  | `/applications`           | Create an application     |
-| GET   | `/applications`           | List all applications     |
-| GET   | `/applications/{id}`      | Get an application by ID  |
-| PUT   | `/applications/{id}`      | Update an application     |
-| DELETE| `/applications/{id}`      | Delete an application     |
+4. Run the application:
+   python app.py
 
----
+#API ENDPOINTS (EXAMPLE)
+GET    /jobs        -> Get all job applications
+POST   /jobs        -> Add a new job
+PUT    /jobs/{id}   -> Update job status
+DELETE /jobs/{id}   -> Delete a job
 
-## 🚀 Getting Started (Local Setup)
+#EXAMPLE REQUEST (POST)
+{
+  "company": "Google",
+  "position": "Backend Developer",
+  "status": "Applied"
+}
 
-### Prerequisites
-- Python 3.10+ recommended
+#PROJECT PURPOSE
+This project was developed to practice backend development with Python
+and demonstrate the use of REST APIs and application logic.
 
-### Installation
+#FUTURE IMPROVEMENTS
+- Database integration (SQLite / PostgreSQL)
+- User authentication
+- Deployment
 
-1) Clone the repository: 
-git clone https://github.com/Ghaniomix/Job-tracker-api.git
-cd Job-tracker-api
-
-2) Create and activate a virtual environment:
-python -m venv .venv
-
-# Windows:
-.venv\Scripts\activate
-
-# macOS/Linux:
-source .venv/bin/activate
-
-Install dependencies:
-Option A (recommended): if you add a requirements.txt
-pip install -r requirements.txt
-Option B: install manually
-pip install fastapi "uvicorn[standard]" sqlmodel
-Run the API
-uvicorn app.main:app --reload
-API base URL:
-http://127.0.0.1:8000
-Interactive Docs:
-Swagger UI: http://127.0.0.1:8000/docs
-ReDoc: http://127.0.0.1:8000/redoc
-
-Example (Create Application)
-The request fields depend on your SQLModel schema in app/models.py.
-curl -X POST "http://127.0.0.1:8000/applications" \
-  -H "Content-Type: application/json" \
-  -d '{"company":"Acme","position":"Backend Developer","status":"applied"}'
-🧭 Roadmap
-Add pagination & filtering for GET /applications
-Improve validation & error handling
-Add tests with pytest
-Add CI with GitHub Actions
-Deploy the API (Render / Railway / Fly.io)
-Optional: Docker support
+#AUTHOR
+Ghanioviç
+GitHub: https://github.com/Ghaniomix
